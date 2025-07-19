@@ -62,7 +62,7 @@ public Employee add(@RequestBody Employee employee){
     return ResponseEntity.ok("the reapplyied successfully");
 }
 @GetMapping("/showall/{id}")
-    public Responsedto showall(@PathVariable Long id){
+    public Responsedto findall(@PathVariable Long id){
     return serviceimplel.showall(id);
 }
 
