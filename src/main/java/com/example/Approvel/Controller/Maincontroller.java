@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -38,7 +39,7 @@ public class Maincontroller {
 //}
 
 @GetMapping("/leaverequestcheck")
-    public ResponseEntity<List<LeaveRequest>> fetch(){
+    public ResponseEntity<List<LeaveRequest>> fetching(){
     return ResponseEntity.ok(serviceimplel.fetch());
 }
 @PostMapping("addemp")
@@ -47,7 +48,7 @@ public Employee add(@RequestBody Employee employee){
 }
 
 @PutMapping("/approve/{id}")
-    public ResponseEntity<String> approve(@RequestBody Dto dto ,@PathVariable Long id){
+    public ResponseEntity<String> approvelling(@RequestBody Dto dto ,@PathVariable Long id){
     serviceimplel.approve(dto, id);
     return ResponseEntity.ok("approvel successfully");
 }
@@ -59,12 +60,15 @@ public Employee add(@RequestBody Employee employee){
 @PostMapping("/reapp/{id}")
     public ResponseEntity<String> reaapply(@PathVariable Long id, @RequestBody Dto dto){
     serviceimplel.reapply(id, dto);
-    return ResponseEntity.ok("the reapplyied successfully");
+    return ResponseEntity.ok("the application submitted succesfully please check it");
 }
 @GetMapping("/showall/{id}")
     public Responsedto findall(@PathVariable Long id){
     return serviceimplel.showall(id);
 }
-
+@GetMapping("showbyid/{id}")
+    public ResponseEntity<Employee> findbyid(@PathVariable Long id){
+    return serviceimplel.showbyid(id);
+}
 
 }

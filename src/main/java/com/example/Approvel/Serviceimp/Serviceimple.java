@@ -10,6 +10,7 @@ import com.example.Approvel.Repository.Employeerepo;
 import com.example.Approvel.Repository.Leaverequestrepo;
 import com.example.Approvel.Service.Servicebussiness;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -116,5 +117,8 @@ return response;
     }
 
 
-
+    public ResponseEntity<Employee> showbyid(Long id) {
+        Employee employee=employeerepo.findById(id).orElseThrow(()->new RuntimeException("the id is not found"));
+        return ResponseEntity.ok(employee);
+    }
 }

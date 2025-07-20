@@ -5,6 +5,7 @@ import com.example.Approvel.Dto.Responsedto;
 import com.example.Approvel.Model.Employee;
 import com.example.Approvel.Model.LeaveRequest;
 import com.example.Approvel.Model.Role;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -25,6 +26,5 @@ public interface Servicebussiness {
     void reapply(Long id, Dto dto);
     public Responsedto showall(Long id) ;
 
-
-
-    }
+    public ResponseEntity<Employee> showbyid(Long id);
+}
