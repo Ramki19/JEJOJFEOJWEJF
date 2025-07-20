@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -68,7 +69,6 @@ public Employee add(@RequestBody Employee employee){
 @GetMapping("showbyid/{id}")
     public ResponseEntity<Employee> findbyid(@PathVariable Long id){
     return serviceimplel.showbyid(id);
-
 }
 
 }
